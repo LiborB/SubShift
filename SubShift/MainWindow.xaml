@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="SubShift" Closing="Window_Closing" SizeToContent="WidthAndHeight">
+    <Grid HorizontalAlignment="Center" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="0,10,0,0" VerticalAlignment="Top">
+            <Button FontSize="16" Width="200" Name="btn_SelectFiles" Click="btn_SelectFiles_Click">Select Subtitle File(s)</Button>
+            <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
+                <TextBlock TextAlignment="Center" Margin="0 0 10 0" VerticalAlignment="Center">Milliseconds to offset the subtitles</TextBlock>
+                <TextBox HorizontalContentAlignment="Center" LostFocus="textbox_Offset_LostFocus" PreviewTextInput="textbox_Offset_PreviewTextInput" Width="60" Text="0" VerticalAlignment="Center" Name="textbox_Offset"></TextBox>
+                <Button Click="btn_Offset_Click" CommandParameter="10" Width="30" Margin="5 0 5 0">+10</Button>
+                <Button Click="btn_Offset_Click" CommandParameter="100" Width="40">+100</Button>
+                <Button Click="btn_Offset_Click" CommandParameter="1000" Width="50" Margin="5 0 10 0">+1000</Button>
+                <Button Click="btn_Offset_Click" CommandParameter="-10" Width="30" Margin="0 0 5 0">-10</Button>
+                <Button Click="btn_Offset_Click" CommandParameter="-100" Width="40">-100</Button>
+                <Button Click="btn_Offset_Click" CommandParameter="-1000" Width="50" Margin="5 0 0 0">-1000</Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <CheckBox HorizontalAlignment="Left"  Click="chkbox_Overwrite_Click" Name="chkbox_Overwrite" IsChecked="True" VerticalContentAlignment="Center">Overwrite original files</CheckBox>
+
+                <StackPanel Name="cont_OutputWrapper" Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Left">
+                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
+                        <Label Name="label_Overwrite">Add this string to outputted filenames</Label>
+                        <TextBox VerticalAlignment="Center" Text="_converted" Name="txt_Overwrite" Width="300"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
+                        <Label Name="label_OutputDir">Output Directory</Label>
+                        <TextBox Width="300" Margin="0 0 10 0" Name="txt_OutputDir"></TextBox>
+                        <Button Name="btn_SelectFolder" Click="btn_SelectFolder_Click">Select Folder</Button>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+            <ScrollViewer Margin="0 0 0 10" Height="200" Background="LightGray" Padding="10">
+                <StackPanel Orientation="Vertical" Name="stackpanel_SelectedFiles">
+                </StackPanel>
+            </ScrollViewer>
+            <Button FontSize="16" Padding="5" Width="150" Foreground="White" Background="SteelBlue" Name="btn_Convert" Click="btn_Convert_Click">Convert</Button>
+        </StackPanel>
+        <TextBlock Height="30" Name="txt_Progress" FontSize="20" Margin="0,0,0,10" Foreground="DeepSkyBlue" HorizontalAlignment="Center" Grid.Row="1"></TextBlock>
+    </Grid>
+</Window>
