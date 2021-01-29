@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubShift", "WpfApp7\SubShift.csproj", "{D256A826-7F98-45E2-915F-B396199BB0E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubShift", "SubShift\SubShift.csproj", "{D256A826-7F98-45E2-915F-B396199BB0E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
